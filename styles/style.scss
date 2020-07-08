@@ -1,0 +1,468 @@
+@import './reset';
+@import './mixins';
+
+
+section{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  color: #232123;
+  z-index: 1;
+}
+
+.middle{
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+ul{
+  list-style: none;
+
+  li{
+    display: inline;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    z-index: 5;
+  }
+}
+
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .title{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: -1;
+    font-family: 'Oswald', sans-serif;
+    font-size: 80px;
+    letter-spacing: 1px;
+    transform: scaleY(1.7);
+
+    .black{
+      color: #232123;
+    }
+
+    .outlined{
+      @include outlined;
+    }
+  }
+
+  .forest{
+    position: absolute;
+    top: 50vh;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  .desc{
+    position: fixed;
+    bottom: 0;
+    height: 250px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .sub-title{
+      color: white;
+      font-family: "Poppins";
+      padding-bottom: 25px;
+      width: 65%;
+      overflow: hidden;
+      align-self: flex-end;
+    }
+
+    .bottom-nav{
+      width: 100%;
+      height: 80px;
+      background: #CAC5C1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      h4{
+        font-family: 'Oswald';
+        transform: scaleY(1.7) translateX(-20px);
+        color: #232123;
+        transition: .7s all;
+      }
+
+      .circle{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #232123;
+        margin: 0 20px;
+        cursor: pointer;
+
+        &:before{
+          content: '';
+          display: block;
+          height: 1.5px;
+          width: 15px;
+          background: #232123;
+          margin-top: 46%;
+          margin-left: -50%;
+        }
+
+        &:after{
+          content: '';
+          display: block;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          opacity: 0.2;
+          background: #232123;
+          margin-left: -200px;
+          margin-top: -130%;
+          transition: .7s all ease;
+        }
+      }
+
+      &:hover .circle::after{
+        transition: .7s all ease;
+        margin-left: -15px;
+      }
+
+      &:hover h4{
+        transform: scaleY(1.7) translateX(0px);
+      }
+    }
+  }
+}
+
+.grid{
+
+  display: none;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column: 1/span 12;
+  grid-row: 1/span 12;
+  width: 100%;
+  height: 100%;
+  grid-row-gap: 2px;
+  grid-column-gap: 2px;
+  position: absolute;
+  top: 0;
+
+  .destination{
+    opacity: 0;
+    grid-column: 2/span 2;
+    grid-row: 10/span 1;
+    z-index: 1;
+    font-family: 'Oswald';
+    font-size: 30px;
+    color: white;
+    letter-spacing: 1px;
+    transform: scaleY(1.5) translateY(20px);
+    
+    .white_outline{
+      @include outlined;
+      -webkit-text-stroke: 1px #fff;
+    }
+  }
+  
+  .images{
+    grid-column: 3/span 4;
+    grid-row: 3/span 8;
+    width: 100%;
+    height: 0%;
+    top: 100%;
+    overflow: hidden;
+    position: relative;
+    transform-origin: top;
+    transform: rotateX(180deg);
+
+    .image-wrapper{
+      @include image-wrapper;
+    }
+    
+    .first-image{
+      background: url(../images/woman-on-bridge.jpg);
+      height: 600px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+  }  
+
+  .images-2{
+    grid-column: 7/span 2;
+    grid-row: 3/span 5;
+    width: 100%;
+    height: 0%;
+    top: 100%;
+    overflow: hidden;
+    position: relative;
+    transform-origin: top;
+    transform: rotateX(180deg);
+
+    .image-wrapper{
+      @include image-wrapper;
+    }
+
+    .second-image{
+      height: 400px;
+      background: url(../images/second.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left;
+    }
+  }
+
+  .images-3{
+    grid-column: 7/span 2;
+    grid-row: 8/span 3;
+    width: 100%;
+    height: 0%;
+    top: 100%;
+    overflow: hidden;
+    position: relative;
+    transform-origin: top;
+    transform: rotateX(180deg);
+
+    .image-wrapper{
+      @include image-wrapper;
+    }
+
+    .third-image{
+      height: 300px;
+      background: url(../images/on-top-of-rock.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  
+  .images-4{
+    grid-column: 9/span 2;
+    grid-row: 3/span 8;
+    width: 100%;
+    height: 0%;
+    top: 100%;
+    overflow: hidden;
+    position: relative;
+    transform-origin: top;
+    transform: rotateX(180deg);
+
+    .image-wrapper{
+      @include image-wrapper;
+    }
+
+    .fourth-image{
+      height: 600px;
+      background: url(../images/fourth.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.bg-image{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
+  position: fixed;
+  background: url("../images/mountain main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+
+@media (max-width: 1172px){
+  section{
+    .container{
+      .title{
+        font-size: 60px;
+      }
+
+      .sub-title{
+        width: 90%;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 883px){
+  section{
+    .container{
+      .title{
+        font-size: 50px;
+      }
+      .sub-title{
+        width: 90%;
+        font-size:12px;
+    
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 739px){
+  section{
+    .container{
+      .title{
+        font-size: 40px;
+      }
+      .sub-title{
+        width: 90%;
+        font-size:12px;
+    
+      }
+
+      .forest img{
+        height: 120%;
+        width: 130%;
+      }
+      
+    }
+    .grid{
+      
+      .images,
+      .images-2.second-image,
+      .images-3.third-image,
+      .images-4
+      
+      {
+        top: 110%;
+
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 595px){
+  section{
+    .navbar{
+      flex-direction: column;
+      
+      .middle h4{
+        font-size: 12px;
+      }
+    }
+    .container{
+      .title{
+        font-size: 35px;
+      }
+      .sub-title{
+        width: 90%;
+        font-size:12px;
+    
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 523px){
+  section{
+    .container{
+      .title{
+        font-size: 30px;
+      }
+      .sub-title{
+        width: 90%;
+        font-size:12px;
+    
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 451px){
+  section{
+    .container{
+      .title{
+        font-size: 25px;
+      }
+      .sub-title{
+        width: 90%;
+        font-size:10px;
+    
+      }
+      .desc{
+        width: 70%;
+        .bottom-nav {
+          h4{
+            font-size: 10px;
+          }
+          .circle:after{
+            height: 34px;
+            width: 34px;
+            margin-left: -140px;
+            margin-top: -90%;
+          }
+          &:hover .circle::after{
+          
+            margin-left: -8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 379px){
+  section{
+    .container{
+      .title{
+        font-size: 20px;
+      }
+      .sub-title{
+        
+        font-size:12px;
+    
+      }
+      .desc{
+        .bottom-nav {
+          width: 100%;
+          h4{
+            font-size: 10px;
+            padding-left: 4em; 
+          }
+          .circle:after{
+            height: 34px;
+            width: 34px;
+            margin-left: -140px;
+            margin-top: -90%;
+          }
+          &:hover .circle::after{
+          
+            margin-left: -8px;
+          }
+        }
+      }
+    }
+  }
+}
